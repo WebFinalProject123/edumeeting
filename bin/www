@@ -4,30 +4,41 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('edu-meeting:server');
+require('dotenv').config();
+const sequelize = require('../models');
 var http = require('http');
 
-/**
- * Get port from environment and store in Express.
- */
+sequelize.authenticate()
+  .then(() => {
+    console.log('Connect has been established usscessfully ');
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+    var app = require('../app');
+    var debug = require('debug')('edu-meeting:server');
+    
 
-/**
- * Create HTTP server.
- */
+    /**
+     * Get port from environment and store in Express.
+     */
 
-var server = http.createServer(app);
+    var port = normalizePort(process.env.PORT || '3000');
+    app.set('port', port);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+    /**
+     * Create HTTP server.
+     */
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+    var server = http.createServer(app);
+
+    /**
+     * Listen on provided port, on all network interfaces.
+     */
+
+    server.listen(port);
+    server.on('error', onError);
+    server.on('listening',()=> onListening(server, debug));
+
+  })
+  .catch(err => console.log('Unable to connect this database'));
 
 /**
  * Normalize a port into a number, string, or false.
@@ -81,7 +92,7 @@ function onError(error) {
  * Event listener for HTTP server "listening" event.
  */
 
-function onListening() {
+function onListening(server, debug) {
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
