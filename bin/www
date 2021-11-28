@@ -38,7 +38,7 @@ sequelize.authenticate()
     server.on('listening',()=> onListening(server, debug));
 
   })
-  .catch(err => console.log('Unable to connect this database'));
+  .catch(err => console.log('Unable to connect this database', err));
 
 /**
  * Normalize a port into a number, string, or false.
