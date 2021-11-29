@@ -1,78 +1,82 @@
 <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-edu-meeting.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/lightbox.css">
-    <section class="heading-page header-text" id="top">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h6>Here are our upcoming meetings</h6>
-          <h2>Upcoming Meetings</h2>
-        </div>
+<!-- Additional CSS Files -->
+<link rel="stylesheet" href="assets/css/fontawesome.css">
+<link rel="stylesheet" href="assets/css/templatemo-edu-meeting.css">
+<link rel="stylesheet" href="assets/css/owl.css">
+<link rel="stylesheet" href="assets/css/lightbox.css">
+<section class="heading-page header-text" id="top">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h6>Here are our upcoming meetings</h6>
+        <h2>Upcoming Meetings</h2>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 <section class="meetings-page" id="meetings">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="filters">
-                <ul>
-                  <li data-filter="*"  class="active">All Meetings</li>
-                  <li data-filter=".soon">Soon</li>
-                  <li data-filter=".imp">Important</li>
-                  <li data-filter=".att">Attractive</li>
-                </ul>
-              </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="filters">
+              <ul>
+                <li data-filter="*" class="active">All Meetings</li>
+                <li data-filter=".soon">Soon</li>
+                <li data-filter=".imp">Important</li>
+                <li data-filter=".att">Attractive</li>
+              </ul>
             </div>
-            <div class="col-lg-12">
-              <div class="row grid">
-                {{#each course}}
-                <div class="col-lg-4 templatemo-item-col all soon">
-                  <div class="meeting-item">
-                    <div class="thumb">
-                      <div class="price">
-                        <span>${{this._price}}</span>
-                      </div>
-                      <a href="course_details"><img src="assets/images/meeting-01.jpg" alt=""></a>
+          </div>
+          <div class="col-lg-12">
+            <div class="row grid">
+              {{#each course}}
+              <div class="col-lg-4 templatemo-item-col all soon">
+                <div class="meeting-item">
+                  <div class="thumb">
+                    <div class="price">
+                      <span>$ {{this._price}}</span>
                     </div>
-                    <div class="down-content">
-                      <div class="date">
-                        <h6>Nov <span>12</span></h6>
-                      </div>
-                      <a href="course_details"><h4>{{this._name}}</h4></a>
-                      <p>{{this._description}}</p>
-                    </div>
+                    <a href="/course_details/{{this._course_ID}}"><img src="https://res.cloudinary.com/vodinhphuc-fit-hcmus/image/upload/edumeeting/images/course/course_{{this._course_ID}}" alt=""></a>
+                  </div>
+                  <div class="down-content">
+                   
+                    <a href="/course_details/{{this._course_ID}}">
+                      <h4>{{this._name}}</h4>
+                    </a>
+                    <p>{{this._brief_description}}</p>
                   </div>
                 </div>
-                {{/each}}
               </div>
+              {{/each}}
             </div>
-            <div class="col-lg-12">
-              <div class="pagination">
-                <ul>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                </ul>
-              </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="pagination pagination-centered">
+              <ul>
+                {{#paginate pagination type="previous"}}
+                <li {{#if disabled}}class="disabled" {{/if}}><a href="?p={{n}}">Prev</a></li>
+                {{/paginate}}
+                {{#paginate pagination type="middle" limit="5"}}
+                <li {{#if active}}class="active" {{/if}}><a href="?p={{n}}">{{n}}</a></li>
+                {{/paginate}}
+                {{#paginate pagination type="next"}}
+                <li {{#if disabled}}class="disabled" {{/if}}><a href="?p={{n}}">Next</a></li>
+                {{/paginate}}
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="footer">
-      <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved. 
-          <br>Design: <a href="https://templatemo.com/page/1" target="_parent" title="website templates">TemplateMo</a></p>
-    </div>
-  </section>
-
-  
+  </div>
+  <div class="footer">
+    <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved.
+      <br>Design: <a href="https://templatemo.com/page/1" target="_parent" title="website templates">TemplateMo</a>
+    </p>
+  </div>
+</section>

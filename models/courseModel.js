@@ -23,6 +23,9 @@ const Course = sequelize.define('Course', {
   _star: {
       type: DataTypes.FLOAT,
       allowNull: true
+  },
+  _brief_description:{
+      type: DataTypes.STRING
   }
 },{
     tableName: 'Course',

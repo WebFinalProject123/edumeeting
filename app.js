@@ -12,6 +12,8 @@ var courseRouter = require('./routes/courses');
 var coursedetailsRouter = require('./routes/course_details');
 var paymentRouter = require('./routes/payment');
 
+var association= require('./models/asocciate');
+association();
 var app = express();
 const hbs = require('hbs');
 
@@ -28,6 +30,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+var paginate = require('handlebars-paginate');
+ hbs.registerHelper('paginate', paginate);
+
 
 app.use('/', indexRouter);
 app.use('/index', indexRouter);
