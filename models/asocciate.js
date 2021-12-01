@@ -1,5 +1,4 @@
-const Class = require('./classModels')
-const Class_schedule = require('./class_scheduleModel')
+const Class = require('./classModel')
 const Course = require('./courseModel')
 const sequelize = require('./index')
 const Registration = require('./registrationModel')
@@ -18,11 +17,11 @@ module.exports= ()=>{
     Class.belongsTo(Teacher, {foreignKey: '_teacher_ID', targetKey: '_teacher_ID'})
     Teacher.hasMany(Class, {foreignKey: '_teacher_ID'})
 
-    Class_schedule.belongsTo(Class, {foreignKey: '_class_ID', targetKey: '_class_ID'})
-    Class.hasMany(Class_schedule, {foreignKey: '_class_ID'})
+    Class.belongsTo(Schedule,{as: 'Schedule1',foreignKey:'_schedule_ID_1', targetKey:'_schedule_ID'})
+    Schedule.hasMany(Class, {foreignKey: '_schedule_ID_1', as: 'Schedule1'})
 
-    Class_schedule.belongsTo(Schedule, {foreignKey:'_schedule_ID', targetKey:'_schedule_ID'})
-    Schedule.hasMany(Class_schedule,{foreignKey:'_class_ID'})
+    Class.belongsTo(Schedule,{ as: 'Schedule2',foreignKey:'_schedule_ID_2', targetKey:'_schedule_ID'})
+    Schedule.hasMany(Class, {foreignKey: '_schedule_ID_2', as: 'Schedule2'})
 
     Registration.belongsTo(Class, {foreignKey:'_class_ID', targetKey: '_class_ID'})
     Class.hasMany(Registration,{foreignKey:'_class_ID'})

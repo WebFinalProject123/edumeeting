@@ -6,7 +6,8 @@ const Class = sequelize.define('Class', {
     _class_ID: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
     },
     _course_ID: {
         type: DataTypes.INTEGER,
@@ -38,6 +39,12 @@ const Class = sequelize.define('Class', {
         type: DataTypes.INTEGER
     },
     _teacher_ID:{
+        type: DataTypes.INTEGER
+    },
+    _schedule_ID_1:{
+        type: DataTypes.INTEGER
+    },
+    _schedule_ID_2:{
         type: DataTypes.INTEGER
     }
   },{

@@ -6,7 +6,8 @@ const Course = sequelize.define('Course', {
   _course_ID: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
   },
   _name:{
       type: DataTypes.STRING,
@@ -25,6 +26,9 @@ const Course = sequelize.define('Course', {
       allowNull: true
   },
   _brief_description:{
+      type: DataTypes.STRING
+  },
+  _image:{
       type: DataTypes.STRING
   }
 },{

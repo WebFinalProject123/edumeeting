@@ -1,5 +1,5 @@
 
-const classModel= require('../../models/classModels')
+const classModel= require('../../models/classModel')
 const Course = require('../../models/courseModel')
 const teacher= require('../../models/teacherModel')
 const User = require('../../models/userModel')
