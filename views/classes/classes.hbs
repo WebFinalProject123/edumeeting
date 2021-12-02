@@ -32,13 +32,16 @@
               <div class="col-lg-4 templatemo-item-col all soon">
                 <div class="meeting-item">
                   <div class="thumb">
-                    <a href="/course_details/{{this._course_ID}}"><img src="/assets/images/meeting-01.jpg" alt=""></a>
+                    <a href="/course_details/{{this._course_ID}}"><img src={{this.[Course._image]}} alt=""></a>
                   </div>
                   <div class="down-content">
 
                     <h4>Class: {{this._className}}</h4>
                     <p>Teacher: {{this.[Teacher.User._firstName]}} {{this.[Teacher.User._lastName]}}</p>
                     <p>Start on: {{this._startDate}}</p>
+                    <p>End on: {{this._endDate}}</p>
+                    <p>1st Lesson: {{this.[Schedule1._dayOfWeek]}}: {{this.[Schedule1._startHour]}}-{{this.[Schedule1._endHour]}}</p>
+                    <p>2nd Lesson: {{this.[Schedule2._dayOfWeek]}}: {{this.[Schedule2._startHour]}}-{{this.[Schedule2._endHour]}}</p>
                     <p>End on: {{this._endDate}}</p>
                     <p>At room: {{this._room}}</p>
                     <p>Number of lesson: {{this._numberOfLesson}}</p>
