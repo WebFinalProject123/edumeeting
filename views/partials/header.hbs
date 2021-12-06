@@ -3,9 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-sm-8">
-          <div class="left-content">
-            <p>This is an educational <em>HTML CSS</em> template by TemplateMo website.</p>
-          </div>
+          
         </div>
         <div class="col-lg-4 col-sm-4">
           <div class="right-icons">
@@ -14,8 +12,13 @@
               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
               <li><a href="#"><i class="fa fa-behance"></i></a></li>
               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="/login" class="Login_icon">Login</a></li>
-              <li><a href="/register" class="Register_icon">Register</a></li>
+              {{#if student}}
+                <li style="color: white;"><i class="fa fa-user"></i>  Hello {{student.firstName}} {{student.lastName}} </li>
+                <li><a href="/logout" class="Login_icon">Logout</a></li>
+              {{else}}
+                <li><a href="/login" class="Login_icon">Login</a></li>
+                
+              {{/if}}
               <li><a href="#"><i class="Logout_icon"></i></a></li>
             </ul>
           </div>
@@ -39,14 +42,16 @@
                       <ul class="nav">
                           <li ><a href="/index">Home</a></li>
                           <li><a href="/courses">Courses</a></li>
-                          <li><a href="/index #apply">Apply Now</a></li>
+                          <li><a href="/apply">Apply Now</a></li>
+                          {{#if student}}
                           <li class="has-sub">
-                              <a href="javascript:void(0)">Pages</a>
+                              <a href="javascript:void(0)">MY ACCOUNT</a>
                               <ul class="sub-menu">
-                                  <li><a href="/courses">Upcoming Courses</a></li>
-                                  <li><a href="/course-details">Course Details</a></li>
+                                  <li><a href="/me/information">MY INFORMATION</a></li>
+                                  <li><a href="/me/stored-classes">MY CLASSES</a></li>
                               </ul>
                           </li>
+                          {{/if}}
                           <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
                       </ul>        
                       <a class='menu-trigger'>
@@ -59,3 +64,5 @@
       </div>
   </header>
   <!-- ***** Header Area End ***** -->
+  
+  

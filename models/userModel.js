@@ -4,6 +4,7 @@ const {DataTypes}= require('sequelize')
 const User = sequelize.define('User', {
     _ID:{
         type: DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false, primaryKey: true
     },
     _userName:{
@@ -34,6 +35,9 @@ const User = sequelize.define('User', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    _avatar:{
+        type: DataTypes.STRING
+    }
   },{
       tableName: 'User',
       timestamps: false

@@ -3,6 +3,22 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require("express-session")
+const passport= require("./passport")
+
+var association= require('./models/asocciate');
+association();
+var app = express();
+const hbs = require('hbs');
+
+app.use(session({ secret: process.env.SECRET_SESSION }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(function(req,res,next){
+  res.locals.student=req.user;
+  next()
+})
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -11,11 +27,8 @@ var registerRouter = require('./routes/register');
 var courseRouter = require('./routes/courses');
 var coursedetailsRouter = require('./routes/course_details');
 var paymentRouter = require('./routes/payment');
-
-var association= require('./models/asocciate');
-association();
-var app = express();
-const hbs = require('hbs');
+var authRouter= require('./routes/auth')
+var meRouter= require('./routes/me')
 
 
 //this required before view engine setup
@@ -34,15 +47,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 var paginate = require('handlebars-paginate');
  hbs.registerHelper('paginate', paginate);
 
-
+ app.use('/', authRouter);
 app.use('/', indexRouter);
+
 app.use('/index', indexRouter);
 app.use('/users', usersRouter);
-app.use('/login', loginRouter);
-app.use('/register', registerRouter);
+app.use('/me', meRouter);
+
 app.use('/courses', courseRouter);
 app.use('/course_details', coursedetailsRouter);
 app.use('/payment', paymentRouter);
+app.use('/apply', (req,res)=>{res.render('contact/apply')})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
