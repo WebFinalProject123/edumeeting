@@ -10,6 +10,7 @@ var association= require('./models/asocciate');
 association();
 var app = express();
 const hbs = require('hbs');
+var loggedInGuard=require('./middlewares/loggedInGuard')
 
 app.use(session({ secret: process.env.SECRET_SESSION }));
 app.use(passport.initialize());
@@ -29,6 +30,7 @@ var coursedetailsRouter = require('./routes/course_details');
 var paymentRouter = require('./routes/payment');
 var authRouter= require('./routes/auth')
 var meRouter= require('./routes/me')
+
 
 
 //this required before view engine setup
@@ -52,7 +54,7 @@ app.use('/', indexRouter);
 
 app.use('/index', indexRouter);
 app.use('/users', usersRouter);
-app.use('/me', meRouter);
+app.use('/me',loggedInGuard, meRouter);
 
 app.use('/courses', courseRouter);
 app.use('/course_details', coursedetailsRouter);

@@ -23,9 +23,10 @@ exports.register=async (infor)=>{
         _address: infor.address,
         _avatar: 'https://res.cloudinary.com/vodinhphuc-fit-hcmus/image/upload/v1638797362/149071_hpvlhk.png'
     })
-    return Student.create({
+    await Student.create({
         _student_ID: null,
         _user_ID: user._ID,
         _balance: 0
     })
+    return user;
 }

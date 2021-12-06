@@ -3,6 +3,9 @@ exports.login=(req,res)=>{
     const wrong= req.query['wrong']!==undefined
     res.render('authentication/login', {wrong})
 }
-exports.register=(req,res)=>{
-    studentService.register(req.body).then(()=>{res.redirect('/login')})
+const passport=require('../../passport')
+exports.register=(req,res, next)=>{
+    const user=studentService.register(req.body)
+    res.redirect('/login')
 }
+
