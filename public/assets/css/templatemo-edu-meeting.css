@@ -1578,6 +1578,26 @@ section.meetings-page .main-button-red a {
   border-top-left-radius: 20px;
 }
 
+.meeting-item .thumb .img_class ::after{
+  content: url("../images/icon-view.svg");
+  background-color: hsla(178, 100%, 50%,0.4);
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  border-radius: 20px 20px 0;
+
+  opacity: 0;
+  transition: opacity ease 0.3;
+}
+
+.meeting-item .thumb .img_class:hover ::after{
+  opacity: 1;
+}
+
+
+
 .meeting-single-item .thumb .price {
   position: absolute;
   left: 20px;
