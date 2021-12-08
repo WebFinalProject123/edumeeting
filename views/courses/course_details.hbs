@@ -9,6 +9,32 @@
 <script src="assets/js/custom.js"></script>
 
 
+
+
+
+
+
+
+{{!-- 
+<style>
+  
+header.header-area{
+  background-color:hsla(178, 100%, 50%,0.5);
+  box-shadow: 0 1px 3px 0 hsla(0, 1, 50%,0.5);
+  position: fixed;
+  top:30px;
+  transition: background-color ease 0.3;
+}
+
+header.header-area:hover{
+  background-color:hsla(178, 100%, 50%,0.9);
+}
+</style> --}}
+
+
+
+
+
 <section class="meetings-page" id="meetings">
   <div class="container">
     <div class="row">
@@ -30,10 +56,10 @@
               </div>
               <div class="down-content">
                 <a href="/course_details">
-                  <h4>{{course._name}}</h4>
+                  <h3>{{course._name}}</h3>
                 </a>
                 <p>{{course._room}}</p>
-                 <h3>Description</h3>
+                 <h4>Description</h4>
                 <p class="description">
                  
                   {{course._description}}
