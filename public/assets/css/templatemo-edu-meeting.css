@@ -961,6 +961,14 @@ section.upcoming-meetings .categories .main-button-red a {
   position: absolute;
   left: 20px;
   top: 20px;
+  z-index:1;
+  
+  transition: box-shadow ease 1s;
+}
+
+.meeting-item .thumb .price span:hover {
+  
+  box-shadow:0 5px 5px 5px rgba(0,0,0,0.3);
 }
 
 .meeting-item .thumb .price span {
