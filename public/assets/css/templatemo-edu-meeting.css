@@ -130,7 +130,7 @@ body {
 }
 
 ::selection {
-  background: #f5a425;
+  background: #97BFB4;
   color: #fff;
 }
 
@@ -1676,18 +1676,21 @@ section.meetings-page .main-button-red a {
 }
 
 .meeting-single-item .down-content p.description {
-  margin-top: 40px;
-  padding-top: 40px;
-  border-top: 1px solid #eee;
+  /* margin-top: 40px; */
+  font-size: 18px;
+  padding-top: 10px;
+  border-top: 2px solid grey;
   margin-bottom: 40px;
   padding-bottom: 40px;
-  border-bottom: 1px solid #eee;
+  border-bottom: none;
+  border-bottom:2px solid grey;
 }
 
 .meeting-single-item .down-content .share {
   margin-top: 40px;
   padding-top: 40px;
   border-top: 1px solid #eee;
+  border-top-width:30px;
 }
 
 .meeting-single-item .down-content .share h5 {
