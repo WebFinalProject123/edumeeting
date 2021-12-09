@@ -1,4 +1,40 @@
 
+<!-- Additional CSS Files -->
+<link rel="stylesheet" href="/assets/css/fontawesome.css">
+<link rel="stylesheet" href="/assets/css/templatemo-edu-meeting.css">
+<link rel="stylesheet" href="/assets/css/owl.css">
+<link rel="stylesheet" href="/assets/css/lightbox.css">
+<script src="assets/js/isotope.js"></script>
+<script src="assets/js/isotope.min.js"></script>
+<script src="assets/js/custom.js"></script>
+
+
+
+
+
+
+
+
+{{!-- 
+<style>
+  
+header.header-area{
+  background-color:hsla(178, 100%, 50%,0.5);
+  box-shadow: 0 1px 3px 0 hsla(0, 1, 50%,0.5);
+  position: fixed;
+  top:30px;
+  transition: background-color ease 0.3;
+}
+
+header.header-area:hover{
+  background-color:hsla(178, 100%, 50%,0.9);
+}
+</style> --}}
+
+
+
+
+
 <section class="meetings-page" id="meetings">
   <div class="container">
     <div class="row">
@@ -11,14 +47,21 @@
                   <span>${{course._price}}</span>
                 </div>
                 
-                <a href="course_details"><img src="{{course._image}}" alt="https://admissions.vnu.edu.vn/assets/uploads/files/News/af81e-2.png"></a>
+                  <a href="course_details"><img src="{{course._image}}" alt="https://admissions.vnu.edu.vn/assets/uploads/files/News/af81e-2.png"></a>
+              
+                
+
+                
+                
               </div>
               <div class="down-content">
                 <a href="/course_details">
-                  <h4>{{course._name}}</h4>
+                  <h3>{{course._name}}</h3>
                 </a>
                 <p>{{course._room}}</p>
+                 <h4>Description</h4>
                 <p class="description">
+                 
                   {{course._description}}
                 </p>
                 

@@ -1,6 +1,6 @@
 <style>
     body{
-    margin-top:20px;
+    {{!-- margin-top:20px; --}}
     color: #1a202c;
     text-align: left;
     background-color: #e2e8f0;    
@@ -10,6 +10,18 @@
 }
 .card {
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+header.header-area{
+  background-color:hsla(178, 100%, 50%,0.5);
+  box-shadow: 0 1px 3px 0 hsla(0, 1, 50%,0.5);
+  position: fixed;
+  top:30px;
+  transition: background-color ease 0.3;
+}
+
+header.header-area:hover{
+  background-color:hsla(178, 100%, 50%,0.9);
 }
 
 .card {
@@ -53,6 +65,8 @@
     box-shadow: none!important;
 }
 </style>
+
+
 <section class="section main-banner" id="top" data-section="section1">
       <img src="/assets/images/information-bg.jpg" id="bg-image">
 
@@ -178,3 +192,6 @@
 
         </div>
     </div>
+
+
+     
