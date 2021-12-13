@@ -7,9 +7,8 @@ exports.detail= (req,res,next)=>{
     .catch(next)
 }
 exports.list= (req, res, next)=> {
-    courseService.list().then(
+    courseService.list(req.query).then(
         (course)=>  {
-            
             const page = parseInt(req.query.p)||1
             const perpage=9
             const total= Math.ceil(course.length/perpage)

@@ -31,12 +31,18 @@
       <div class="col-lg-12">
         <div class="row">
           <div class="col-lg-12">
+            <form class="d-flex" style="margin-bottom: 5%;" >
+              <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+          <div class="col-lg-12">
             <div class="filters">
               <ul>
-                <li data-filter="*" class="active">All Meetings</li>
-                <li data-filter=".soon">Soon</li>
-                <li data-filter=".imp">Important</li>
-                <li data-filter=".att">Attractive</li>
+                <li class="filter-item"><a href="/courses">All courses</a></li>
+                <li class="filter-item"><a href="?type=Beginer">For Beginer</a></li>
+                <li class="filter-item"><a href="?type=Medium">Medium</a></li>
+                <li class="filter-item"><a href="?type=Advance">Advance</a></li>
               </ul>
             </div>
           </div>
@@ -84,3 +90,13 @@
   </div>
   
 </section>
+<script>
+  var filter_items=document.getElementsByClassName('filter-item')
+  for (int i=0; i<filter_items.length;i++){
+    filter_items[i].addEventListener("click",function(){
+      var current = filter_items.getElementsByClassName("active");
+      current[1].classList.remove("active");
+      this.classList.add("active")
+    })
+  }
+</script>

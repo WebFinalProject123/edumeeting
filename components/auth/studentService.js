@@ -28,5 +28,11 @@ exports.register=async (infor)=>{
         _user_ID: user._ID,
         _balance: 0
     })
-    return user;
+    return {username:infor.username, 
+        firstName:infor.firstName, 
+        lastName:infor.lastName, 
+        email:infor.email, 
+        phone:infor.phone, 
+        address:infor.address, 
+        avatar:infor.avatar};
 }
