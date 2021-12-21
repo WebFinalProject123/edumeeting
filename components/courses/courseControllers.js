@@ -1,7 +1,8 @@
 const courseService= require('../courses/courseServices')
+const courseModel=require('../../models/courseModel')
 exports.detail= (req,res,next)=>{
     courseService.detail(req.params.id).then(course=> {
-        console.log(course);
+        courseModel.increment('_views', {where: {_course_ID: course._course_ID}});
         return res.render('courses/course_details',{course});
    })
     .catch(next)
