@@ -6,6 +6,7 @@ const Schedule = require('./scheduleModel')
 const Student = require('./studentModel')
 const Teacher = require('./teacherModel')
 const User = require('./userModel')
+const Comment = require('./commentModel')
 //const Teacher = require('./teacherModel')
 module.exports= ()=>{
     Teacher.belongsTo(User, {foreignKey: '_user_ID', targetKey: '_ID'})
@@ -31,5 +32,10 @@ module.exports= ()=>{
 
     Student.belongsTo(User, {foreignKey: '_user_ID', targetKey: '_ID'})
     User. hasOne(Student, {foreignKey: '_user_ID'})
+
+    Comment.belongsTo(Student, {foreignKey:'_student_ID', targetKey: '_student_ID'})
+    Comment.belongsTo(Course, {foreignKey:'_course_ID', targetKey: '_course_ID'})
+    Student.hasMany(Comment, {foreignKey:'_student_ID'})
+    Course.hasMany(Comment, {foreignKey:'_course_ID'})
 
 }

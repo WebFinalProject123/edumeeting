@@ -15,7 +15,8 @@ passport.use(new LocalStrategy(
   }
 ));
 passport.serializeUser(function(student, done) {
-  done(null, {username: student['User._userName'], 
+  done(null, {
+              username: student['User._userName'], 
               firstName: student['User._firstName'],
               lastName: student['User._lastName'],
               phone: student['User._phone'],

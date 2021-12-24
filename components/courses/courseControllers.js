@@ -1,11 +1,12 @@
 const courseService= require('../courses/courseServices')
 const courseModel=require('../../models/courseModel')
-exports.detail= (req,res,next)=>{
-    courseService.detail(req.params.id).then(course=> {
-        courseModel.increment('_views', {where: {_course_ID: course._course_ID}});
-        return res.render('courses/course_details',{course});
-   })
-    .catch(next)
+exports.detail= async (req,res,next)=>{
+    const course = await courseService.detail(req.params.id)
+    const comments = await courseService.comment(req.params.id)
+    courseModel.increment('_views', {where: {_course_ID: course._course_ID}});
+    console.log(comments);
+    return res.render('courses/course_details',{course:course, comments:comments});
+   
 }
 exports.list= (req, res, next)=> {
     courseService.list(req.query).then(
