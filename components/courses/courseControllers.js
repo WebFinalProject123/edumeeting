@@ -3,11 +3,13 @@ const courseModel=require('../../models/courseModel')
 exports.detail= async (req,res,next)=>{
     const course = await courseService.detail(req.params.id)
     const comments = await courseService.comment(req.params.id)
+    const relativeCourses=await courseService.coursesByType(course._type)
+    relativeCourses.splice (relativeCourses.indexOf(course), 1)
     courseModel.increment('_views', {where: {_course_ID: course._course_ID}});
     comments.sort((a,b)=>{
         return b._comment_ID - a._comment_ID;
     })
-    return res.render('courses/course_details',{course:course, comments:comments});
+    return res.render('courses/course_details',{course:course, comments:comments, relativeCourses: relativeCourses});
    
 }
 exports.list= (req, res, next)=> {

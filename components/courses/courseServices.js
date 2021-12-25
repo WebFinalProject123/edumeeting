@@ -19,4 +19,6 @@ exports.list=(query)=> {
 }
 exports.detail=(id)=> courseModel.findByPk(id)
 
+exports.coursesByType=(type)=> courseModel.findAll({raw: true, where:{_type: type}})
+
 exports.comment=( _course_ID)=> commentModel.findAll({raw: true, where: {_course_ID: _course_ID}, include: [{model: studentModel, include: [{model:userModel}]}]})

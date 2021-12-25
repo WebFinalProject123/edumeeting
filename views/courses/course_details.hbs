@@ -48,6 +48,9 @@
       </div>
     </div>
     <div class="row">
+      <div class="section-heading" style="margin-top: 100px;">
+        <h2>Comment Area </h2>
+      </div>
       <div class="comment_container">
         <div class="comment_block">
 
@@ -86,7 +89,7 @@
                   {{this.[Student.User._firstName]}} {{this.[Student.User._lastName]}}
                 </div>
               </div>
-              <div class="comment_body">
+              <div class="comment_body" style="border-radius: 10px;">
                 <p>{{this._content}}</p>
               </div>
               <!-- comments toolbar -->
@@ -107,27 +110,57 @@
       </div>
 
     </div>
+    <div class="relative-course">
+      <div class="section-heading">
+        <h2>Relative courses</h2>
+      </div>
+      <div class="row row-cols-1 row-cols-md-3 g-4 group-courses">
+
+        {{#each relativeCourses}}
+        <div class="col">
+          <div class="card h-100">
+            <img
+              src={{this._image}}
+              class="card-img-top" alt="...">
+            <div class="card-body">
+              <h3 class="card-title" style="font-weight:bold;">{{this._name}}</h3>
+              <p class="card-text">{{this._brief_description}}</p>
+            </div>
+            <div class="card-footer">
+              <a href="/course_details/{{this._course_ID}}">
+               <div class="btn btn-primary">More</div>
+              </a>
+             
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      
+      </div>
+    </div>
+
   </div>
 
 </section>
+
 
 <script id="element-comment" src='js/handlebars-v4.0.5.js'>
   <div class="user_comment">
     <div class="infor">
       <div class="user_avatar">
-        <img src= \{{_avatar}}>
+        <img src= \{{ _avatar }}>
       </div>
       <div class="username">
-        \{{_firstName}} \{{_lastName}}
+        \{{ _firstName }} \{{ _lastName }}
       </div>
     </div>
     <div class="comment_body">
-      <p>\{{_content}}</p>
+      <p>\{{ _content }}</p>
     </div>
     <div class="comment_toolbar">
       <div class="comment_details">
         <ul>
-          <li><i class="fa fa-calendar"></i> \{{_create_At}}</li>
+          <li><i class="fa fa-calendar"></i> \{{ _create_At }}</li>
         </ul>
       </div>
     </div>

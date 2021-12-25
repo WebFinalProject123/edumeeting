@@ -977,7 +977,7 @@ body {
   color: #ff6347;
 }
 .comment_container{
-     margin-top: 30px;
+    
      border-radius: 20px 20px 20px 20px;
      background: #f4f4f4;
      padding: 20px;
@@ -986,8 +986,6 @@ body {
      overflow: scroll;
      height: 400px;
      width: 100%;
-     
-    
 }
 .username{
      margin-left: 10px;
@@ -1007,6 +1005,19 @@ body {
      display: flex;
      align-items: center;
 }
+.relative-course{
+     margin-top: 50px;
+     
+}
 
+ .group-courses{
+     flex-wrap: nowrap;
+     overflow-x: scroll;
+ }
+ .group-courses::-webkit-scrollbar {
+     display: none;
+ }
 /** end footer **/
+
+
 
