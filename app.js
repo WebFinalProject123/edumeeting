@@ -30,6 +30,7 @@ var coursedetailsRouter = require('./routes/course_details');
 var paymentRouter = require('./routes/payment');
 var authRouter= require('./routes/auth')
 var meRouter= require('./routes/me')
+var apiRouter = require('./routes/api')
 
 
 
@@ -60,6 +61,8 @@ app.use('/courses', courseRouter);
 app.use('/course_details', coursedetailsRouter);
 app.use('/payment', paymentRouter);
 app.use('/apply', (req,res)=>{res.render('contact/apply')})
+
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

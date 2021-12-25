@@ -54,67 +54,54 @@
 
           <!-- used by #{user} to create a new comment -->
           <div class="create_new_comment">
-
             <!-- current #{user} avatar -->
             <div class="user_avatar">
               {{#if student}}
-                  <img src={{student._avatar}}>
+              <img src={{student.avatar}}>
               {{else}}
-                   <img src="https://www.marketingmuses.com/wp-content/uploads/2018/01/invis-user.png">
+              <img src="https://www.marketingmuses.com/wp-content/uploads/2018/01/invis-user.png">
               {{/if}}
-             
+
             </div><!-- the input field -->
             <div class="input_comment">
-              <input type="text" placeholder="Join the conversation..">
+              <input type="hidden" value="{{course._course_ID}}" id='courseID'>
+              <textarea placeholder="Place your comment about this course here.." style="width:100%"
+                id='comment-content'></textarea>
             </div>
-            <button class="btn btn-primary" style="margin-left: 10px;">Comment</button>
-
+            <button class="btn btn-primary" id="btn-comment" style="margin-left: 10px;">Comment</button>
           </div>
-
-
           <!-- new comment -->
-          {{#each comments}}
-          <div class="new_comment">
 
+          <ul class="new_comment" id="comment-container">
             <!-- build comment -->
-            <ul class="user_comment">
-
+            {{#each comments}}
+            <li class="user_comment">
               <!-- current #{user} avatar -->
-
               <!-- the comment body -->
               <div class="infor">
                 <div class="user_avatar">
-                  
                   <img src={{this.[Student.User._avatar]}}>
                 </div>
-                <div class="username">{{this.[Student.User._firstName]}} {{this.[Student.User._lastName]}}</div>
+                <div class="username">
+                  {{this.[Student.User._firstName]}} {{this.[Student.User._lastName]}}
+                </div>
               </div>
               <div class="comment_body">
                 <p>{{this._content}}</p>
               </div>
-
               <!-- comments toolbar -->
               <div class="comment_toolbar">
-
                 <!-- inc. date and time -->
                 <div class="comment_details">
                   <ul>
-                   
                     <li><i class="fa fa-calendar"></i> {{this._create_At}}</li>
                   </ul>
                 </div><!-- inc. share/reply and love -->
-
-
               </div>
+            </li>
+            {{/each}}
 
-
-
-            </ul>
-
-          </div>
-          {{/each}}
-
-
+          </ul>
 
         </div>
       </div>
@@ -123,3 +110,26 @@
   </div>
 
 </section>
+
+<script id="element-comment" src='js/handlebars-v4.0.5.js'>
+  <div class="user_comment">
+    <div class="infor">
+      <div class="user_avatar">
+        <img src= \{{_avatar}}>
+      </div>
+      <div class="username">
+        \{{_firstName}} \{{_lastName}}
+      </div>
+    </div>
+    <div class="comment_body">
+      <p>\{{_content}}</p>
+    </div>
+    <div class="comment_toolbar">
+      <div class="comment_details">
+        <ul>
+          <li><i class="fa fa-calendar"></i> \{{_create_At}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</script>

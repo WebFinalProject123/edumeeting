@@ -4,7 +4,9 @@ exports.detail= async (req,res,next)=>{
     const course = await courseService.detail(req.params.id)
     const comments = await courseService.comment(req.params.id)
     courseModel.increment('_views', {where: {_course_ID: course._course_ID}});
-    console.log(comments);
+    comments.sort((a,b)=>{
+        return b._comment_ID - a._comment_ID;
+    })
     return res.render('courses/course_details',{course:course, comments:comments});
    
 }

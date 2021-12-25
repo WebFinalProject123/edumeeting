@@ -22,7 +22,7 @@
             {{#if wrong}}
               <div style="color: red;">User name or password is wrong</div>
             {{/if}}
-            <form method="post">
+            <form method="post" action="/login{{#if redirect}}?redirect={{redirect}}{{/if}}">
               <div class="form-group">
                 <label for="email">Email</label>
                 <input type="text" name="username" id="email" class="form-control" placeholder="User name">
