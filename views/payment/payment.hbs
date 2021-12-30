@@ -1,49 +1,3 @@
-<style>
-    .payment {
-        margin: 0;
-        padding: 15px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        
-    }
-    .btn.btn-primary {
-        width: 100%;
-        height: 55px;
-        border-radius: 0;
-        padding: 13px 0;
-        background-color: black;
-        border: none;
-        font-weight: 600
-    }
-
-    .btn.btn-primary:hover .fas {
-        transform: translateX(10px);
-        transition: transform 0.5s ease
-    }
-
-    .fw-900 {
-        font-weight: 900
-    }
-
-    ::placeholder {
-        font-size: 12px
-    }
-
-    .ps-30 {
-        padding-left: 30px
-    }
-
-    .h4 {
-        font-family: 'Work Sans', sans-serif !important;
-        font-weight: 800 !important
-    }
-
-    .textmuted,
-    h5,
-    .text-muted {
-        font-family: 'Poppins', sans-serif
-    }
-</style>
 
 <section class="section main-banner" id="top" data-section="section1">
     <img src="/assets/images/heading-bg.jpg" id="bg-video">
@@ -162,16 +116,3 @@
 </div>
 </div>
 
-<script>
-    
-    $('#btn-purchase').on('click', function(e){
-        $.post(`/courses/class/payment/${$('#classID').val()}`)
-    })
-</script>
-
-
-
-
-<script type='text/javascript'
-    src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
-<script type='text/javascript'></script>

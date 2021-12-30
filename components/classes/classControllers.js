@@ -27,6 +27,11 @@ exports.payment= async (req, res)=>{
 }
 
 exports.purchase= async (req, res)=>{
-    await classservice.purchase(req.params.classID,req.user.studentID)
-    res.redirect('/courses')
+    const isExistsing= await classservice.checkRegistration(req.params.classID,req.user.studentID)
+    if (isExistsing === null){
+        await classservice.purchase(req.params.classID,req.user.studentID)
+        res.status(201).json({success:true})
+    }
+    else res.status(401).json({failure:true})
+    
 }

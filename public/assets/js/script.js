@@ -11,3 +11,13 @@ $('#btn-comment').on('click',function(event){
         window.location.href=`/login?redirect=${window.location.href}`
     })
 })
+
+
+$('#btn-purchase').on('click', function(e){
+    $.post(`/courses/class/payment/${$('#classID').val()}`,{},function(data){
+        window.location.href='/courses'
+    }).fail(function(data){
+        alert("You registraterd this class before")
+        window.location.href='/courses'
+    })
+})

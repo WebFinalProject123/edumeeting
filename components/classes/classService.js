@@ -40,3 +40,6 @@ exports.purchase= async (classID, studetID)=>{
     )
     await classModel.increment('_currentNumber', {where: {_class_ID: classID}})
 }
+exports.checkRegistration=async (classID, studentID) => {
+    return registrationModel.findOne({where: {_class_ID: classID, _student_ID: studentID}})
+}
