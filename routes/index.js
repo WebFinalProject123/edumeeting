@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var courseController=require('../components/courses/courseControllers')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index');
-});
+router.get('/', courseController.listFirstFourCourse);
 
 module.exports = router;

@@ -984,7 +984,7 @@ body {
 }
 .comment_block{
      overflow: scroll;
-     height: 400px;
+     max-height: 800px;
      width: 100%;
 }
 .username{
@@ -1017,54 +1017,61 @@ body {
  .group-courses::-webkit-scrollbar {
      display: none;
  }
+
+.pagination-item :hover{
+     cursor: pointer;
+     color: white !important;
+}
+
+.pagination.pagination-centered > ul > li :hover{
+     cursor: pointer;
+     color: white !important;
+}
+
+
+  #sidebar {
+    float: left;
+    width: 20%;
+    margin-right: 20px;
+  }
+  #filter, #type{
+    background-color: rgb(165, 161, 161);
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  #type{
+       margin-bottom: 20px;
+  }
+
+  #type a{
+     color: black;
+  }
+
+  #type a :hover{
+       background-color: greenyellow;
+    
+}
+
+  #courses-page {
+    float: right;
+    width: 80%;
+  }
+
+  .meeting-item .down-content p{
+       margin-left: 0 !important;
+  }
+
+  .student-avatar{
+    height:20px !important;
+    width:20px !important;
+  }
 /** end footer **/
 
 
 
-    .payment {
-        margin: 0;
-        padding: 15px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        
-    }
-    .btn.btn-primary {
-        width: 100%;
-        height: 55px;
-        border-radius: 0;
-        padding: 13px 0;
-        background-color: black;
-        border: none;
-        font-weight: 600
-    }
-
-    .btn.btn-primary:hover .fas {
-        transform: translateX(10px);
-        transition: transform 0.5s ease
-    }
-
-    .fw-900 {
-        font-weight: 900
-    }
-
-    ::placeholder {
-        font-size: 12px
-    }
-
-    .ps-30 {
-        padding-left: 30px
-    }
-
-    .h4 {
-        font-family: 'Work Sans', sans-serif !important;
-        font-weight: 800 !important
-    }
-
-    .textmuted,
-    h5,
-    .text-muted {
-        font-family: 'Poppins', sans-serif
-    }
+   
 
 
 

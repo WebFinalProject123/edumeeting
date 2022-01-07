@@ -6,7 +6,11 @@ var passport=require('../passport')
 /* GET home page. */
 router.get('/login', authController.login);
 router.post('/login', passport.authenticate('local', 
-{ failureRedirect: '/login?wrong'}),
+{ 
+  failureRedirect: '/login?wrong',
+  failureFlash: true
+}
+),
     function(req, res) {
       // Successful authentication, redirect home.
       if (req.query.redirect !== undefined)
@@ -27,4 +31,6 @@ router.get('/register', function(req, res, next) {
     res.render('authentication/register', { title: 'Express' });
   });
 router.post('/register', authController.register)
+
+router.get('/users/activate', authController.activate)
 module.exports = router;

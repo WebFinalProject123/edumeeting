@@ -5,12 +5,21 @@ exports.login=(req,res)=>{
     if (redirect)
         res.render('authentication/login', {wrong:wrong, redirect:req.query.redirect})
     else
-    res.render('authentication/login', {wrong:wrong})
+    {
+        const Message=req.flash('error')[0]
+        res.render('authentication/login', {wrong:wrong, Message:Message})
+    }
 }
 const passport=require('../../passport')
 exports.register=(req,res, next)=>{
     const user=studentService.register(req.body)
     
-    res.redirect('/');
+    res.redirect('/login');
+}
+
+exports.activate=(req,res)=>{
+    studentService.activate(req.query.email, req.query.activationString)
+
+    res.redirect("/login")
 }
 

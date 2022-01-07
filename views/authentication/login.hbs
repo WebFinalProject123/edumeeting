@@ -20,7 +20,7 @@
           <div class="login-wrapper my-auto">
             <h1 class="login-title" style="text-align: center;">Log in</h1>
             {{#if wrong}}
-              <div style="color: red;">User name or password is wrong</div>
+              <div style="color: red;">{{Message}}</div>
             {{/if}}
             <form method="post" action="/login{{#if redirect}}?redirect={{redirect}}{{/if}}">
               <div class="form-group">
