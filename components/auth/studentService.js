@@ -62,3 +62,36 @@ exports.activate = (email, activationString) => {
         }
         )
 }
+
+exports.sendMail=async (username, email, password) => {
+    const passHash= await bcrypt.hash(password,10)
+    const student = await Student.findOne({raw: true,include: {model: User, where: {_username: username, _email: email}}})
+
+    console.log(student)
+
+    if (student !== null) {
+        const msg = {
+            to: email, // Change to your recipient
+            from: process.env.SENDER_EMAIL, // Change to your verified sender
+            subject: 'Reset password edu course',
+            text: 'Wellcome to my center !!!!!',
+            html: `<h1>Thanks for beleiving on our course</h1> 
+            <p> Please click to verify fot your new password <a href="${process.env.DOMAIN_NAME}/users/verifyResetPassword?email=${email}&activationString=${student['User._activationString']}&password=${passHash}&username=${username}">Verify</p>`,
+        }
+        sgMail
+            .send(msg)
+            .then(() => {
+                console.log('Email sent')
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+    }
+    return student
+}
+
+exports.resetPassword=(email, username, activationString, password)=>
+    User.findOne({where: {_userName: username,_email: email, _activationString: activationString}}).then((user)=>
+        user.update({_password: password})
+    )
+

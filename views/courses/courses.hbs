@@ -1,14 +1,10 @@
-<!-- Additional CSS Files -->
-
-
-<!-- ***** Main Banner Area Start ***** -->
 <section class="heading-page header-text" id="top">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
 
         <h6>Hello students,</h6>
-            <h2>HERE ARE OUR COURSES</h2>
+        <h2>HERE ARE OUR COURSES</h2>
       </div>
     </div>
   </div>
@@ -48,14 +44,14 @@
 
             <div id="filter" class="mt-10">
               <div>
-                <h4 class="p-1 border-bottom" ><b>Order By</b> </h4>
+                <h4 class="p-1 border-bottom"><b>Order By</b> </h4>
                 <select class="form-select m-2 me-3" id="orderBy">
                   <option selected>Order by</option>
                   <option value="_price">Price</option>
                   <option value="_name">Title</option>
                 </select>
 
-                <select class="form-select m-2 me-3" id="order" >
+                <select class="form-select m-2 me-3" id="order">
                   <option selected>Order</option>
                   <option value="ASC">Ascending</option>
                   <option value="DESC">Descreasing</option>
@@ -120,3 +116,15 @@
   </div>
 
 </section>
+
+<script>
+  $('#btn-filter').on('click', function (e) {
+    var currentURL = new URL(window.location.href)
+    currentURL.searchParams.set('order', $('#order').val())
+    currentURL.searchParams.set('orderBy', $('#orderBy').val())
+    currentURL.searchParams.set('minPrice', $('#minPrice').val())
+    currentURL.searchParams.set('maxPrice', $('#maxPrice').val())
+
+    window.location.href = currentURL
+  })
+</script>

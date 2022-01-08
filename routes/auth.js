@@ -33,4 +33,12 @@ router.get('/register', function(req, res, next) {
 router.post('/register', authController.register)
 
 router.get('/users/activate', authController.activate)
+
+router.get('/users/verifyResetPassword', authController.verify)
+
+router.get('/forgotPassword', (req, res, next) => {
+  res.render('authentication/forgotPassword')
+})
+
+router.post('/reset/password', authController.resetPassword)
 module.exports = router;

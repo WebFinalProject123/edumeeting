@@ -23,3 +23,23 @@ exports.activate=(req,res)=>{
     res.redirect("/login")
 }
 
+exports.resetPassword= async (req,res)=>{
+    const sent= await studentService.sendMail(req.body.username, req.body.email, req.body.password)
+
+    if (sent !== null)
+    {
+        res.redirect('/login');
+    }
+    else{
+        res.render('authentication/forgotPassword', {wrong: true})
+    }
+    
+}
+
+exports.verify = async (req,res)=>{
+    await studentService.resetPassword(req.query.email, req.query.username, req.query.activationString, req.query.password)
+
+    res.redirect('/login')
+}
+
+
