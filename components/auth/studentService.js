@@ -9,6 +9,8 @@ exports.findByUserName = (username) => {
     return Student.findOne({ raw: true, include: [{ model: User, where: { _userName: username } }] })
 }
 
+exports.checkRegister=(username)=>User.findOne({where: { _userName: username}})
+
 exports.logginByUser=(username) => {
     return Student.findOne({ raw: true, include: [{ model: User, where: { _userName: username, _status: true} }] })
 }
@@ -28,7 +30,8 @@ exports.register = async (infor) => {
         _address: infor.address,
         _avatar: 'https://res.cloudinary.com/vodinhphuc-fit-hcmus/image/upload/v1638797362/149071_hpvlhk.png',
         _activationString: activationString,
-        _status: false
+        _isActivated: false,
+        _isBanned: false
     })
     await Student.create({
         _student_ID: null,
@@ -58,7 +61,7 @@ exports.register = async (infor) => {
 exports.activate = (email, activationString) => {
     User.findOne({ where: { _email: email, _activationString: activationString } })
         .then((user) => {
-            user.update({ _status: true })
+            user.update({ _isActivated: true })
         }
         )
 }

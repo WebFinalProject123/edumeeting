@@ -11,10 +11,15 @@ exports.login=(req,res)=>{
     }
 }
 const passport=require('../../passport')
-exports.register=(req,res, next)=>{
-    const user=studentService.register(req.body)
-    
+exports.register=async (req,res, next)=>{
+    const user=await studentService.checkRegister(req.body.username)
+
+    if (user!=null)
+        res.render('authentication/register',{error: "Username is exitsted !!!"})
+    else{
+    studentService.register(req.body)
     res.redirect('/login');
+    }
 }
 
 exports.activate=(req,res)=>{

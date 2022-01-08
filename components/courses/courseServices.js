@@ -4,7 +4,9 @@ const courseModel= require('../../models/courseModel')
 const commentModel= require('../../models/commentModel')
 const studentModel= require('../../models/studentModel')
 const userModel=require('../../models/userModel')
+const classModel= require('../../models/classModel')
 const {Op}=require('sequelize')
+const sequelize = require('sequelize')
 exports.list=(query)=> {
     let condition={}
     if (query.minPrice!== undefined)
@@ -28,3 +30,13 @@ exports.coursesByType=(type)=> courseModel.findAll({raw: true, where:{_type: typ
 exports.comment=( _course_ID)=> commentModel.findAll({raw: true, where: {_course_ID: _course_ID}, include: [{model: studentModel, include: [{model:userModel}]}]})
 
 exports.findAll=() =>courseModel.findAll({raw: true, order: [['_course_ID', 'ASC']]})
+
+exports.countAvailableClass=(courseID)=>
+    classModel.count({where: {
+        _course_ID: courseID,
+        _startDate: {
+            [Op.gt]: new Date()
+        },
+        _currentNumber: {
+            [Op.lt]: sequelize.col('_maxNumber')
+        }}})

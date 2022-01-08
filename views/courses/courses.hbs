@@ -16,10 +16,9 @@
     <div class="row">
 
       <div class="col-lg-12">
-        <div class="row">
-          <section id="sidebar" class="col-lg-3">
-
-            <div id="type">
+        <div class="row grid">
+          <section id="sidebar" >
+            <div  id="type" >
               <h4 class="p-1 border-bottom "><b>Search Box</b> </h4>
               <form class="d-flex mt-3 ms-2" style="margin-bottom: 5%;">
                 <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
@@ -75,20 +74,24 @@
           <div class="col-lg-9">
             <div class="row grid">
               {{#each course}}
-              <div class="col-lg-4 templatemo-item-col all soon">
-                <div class="meeting-item">
-                  <div class="thumb">
-                    <div class="price">
-                      <span>$ {{this._price}}</span>
+              <div class="col-lg-4 templatemo-item-col all soon ">
+                <div class="h-100">
+                  <div class="meeting-item">
+                    <div class="thumb">
+                      <div class="price">
+                        <div><span>$ {{this._price}}</span></div>
+                        <div class="mt-2"><span>{{this._type}}</span></div>
+                      </div>
+                      
+                      <a href="/course_details/{{this._course_ID}}"><img src="{{this._image}}"></a>
                     </div>
-                    <a href="/course_details/{{this._course_ID}}"><img src="{{this._image}}"></a>
-                  </div>
-                  <div class="down-content">
+                    <div class="down-content">
 
-                    <a href="/course_details/{{this._course_ID}}">
-                      <h4>{{this._name}}</h4>
-                    </a>
-                    <p>{{this._brief_description}}</p>
+                      <a href="/course_details/{{this._course_ID}}">
+                        <h4>{{this._name}}</h4>
+                      </a>
+                      <p>{{this._brief_description}}</p>
+                    </div>
                   </div>
                 </div>
               </div>

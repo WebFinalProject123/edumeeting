@@ -8,8 +8,12 @@ passport.use(new LocalStrategy(
 
     if (!student)
       return done(null, false, {type: 'error', message: "Invalid username" })
-    else if (student['User._status']==false){
+    else if (student['User._isActivated']==false){
       return done(null, false, {type: 'error', message: "Your account is not activated" })
+    }
+    else if(student['User._isBanned']==true)
+    { 
+      return done(null, false, {type: 'error', message: "Your account is banned. Please conntact admin to learn more." })
     }
     else {
       const check = await studentService.validatePassword(student, password)

@@ -33,8 +33,8 @@ function paginate(page){
 function check () {
     if (document.getElementById('password').value ==
       document.getElementById('confirm_password').value) {
-      document.getElementById('message').style.color = 'green';
-      document.getElementById('message').innerHTML = 'Password is matching';
+      
+      document.getElementById('message').innerHTML = '';
       document.getElementById('submit').disabled = false;
     } else {
       document.getElementById('message').style.color = 'red';
@@ -62,3 +62,28 @@ function check () {
     if (!((order!="Order" && orderBy=="Order by") || (order=="Order" && orderBy!="Order by") || (minPrice==""&&maxPrice!="") || (minPrice!=""&&maxPrice=="")))
     window.location.href=currentURL
 })
+
+function checkUsernameLength(){
+    if (document.getElementById('username').value.length < 8)
+    {
+        document.getElementById('usernameMessage').innerHTML="Username must be longer than 8 characters."
+        document.getElementById('submit').disabled = true;
+    }
+    else{
+        document.getElementById('usernameMessage').innerHTML=""
+        document.getElementById('submit').disabled = false;
+    }
+}
+
+function checkPasswordLength(){
+    if (document.getElementById('password').value.length < 10)
+    {
+        document.getElementById('message').innerHTML="Password must be longer than 10 characters."
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('submit').disabled = true;
+    }
+    else{
+        document.getElementById('message').innerHTML=""
+        document.getElementById('submit').disabled = false;
+    }
+}

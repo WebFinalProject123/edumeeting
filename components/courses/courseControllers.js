@@ -15,9 +15,11 @@ exports.detail= async (req,res,next)=>{
     const total= Math.ceil(comments.length/perpage)
     const start= (page-1)*perpage
     const end = page * perpage
+    const classCount= await courseService.countAvailableClass(course._course_ID)
     comments=comments.slice(start, end)
     return res.render('courses/course_details',
     {
+        classCount: classCount,
         course:course, 
         comments:comments, 
         relativeCourses: relativeCourses,

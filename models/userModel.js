@@ -41,7 +41,10 @@ const User = sequelize.define('User', {
     _activationString:{
         type: DataTypes.STRING
     }, 
-    _status:{
+    _isActivated:{
+        type: DataTypes.BOOLEAN
+    }, 
+    _isBanned:{
         type: DataTypes.BOOLEAN
     }
   },{
