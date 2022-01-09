@@ -13,14 +13,7 @@ router.post('/login', passport.authenticate('local',
 ),
     function(req, res) {
       // Successful authentication, redirect home.
-      if (req.query.redirect !== undefined)
-      {
-        let redirect= req.query.redirect;
-        redirect=redirect.replace("http://localhost:3000/","")
-        res.redirect(`/${redirect}`);
-      }
-        
-      else res.redirect('/');
+      res.redirect('/');
   });
 router.get('/logout', (req,res)=>{
     req.logout()
