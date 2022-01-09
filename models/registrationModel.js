@@ -15,6 +15,9 @@ const Registration = sequelize.define('Registration', {
   },
   _isPayed:{
       type: DataTypes.TINYINT
+  },
+  date:{
+    type: DataTypes.DATE,
   }
 },{
     tableName: 'Registration',
