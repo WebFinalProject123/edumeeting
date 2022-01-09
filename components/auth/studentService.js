@@ -42,8 +42,8 @@ exports.register = async (infor) => {
     const msg = {
         to: infor.email, // Change to your recipient
         from: process.env.SENDER_EMAIL, // Change to your verified sender
-        subject: "Verification for edu course",
-        text: "Wellcome to my center !!!!!",
+        subject: 'Verification for edu course',
+        text: 'Wellcome to my center !!!!!',
         html: `<h1>Thanks for beleiving on our course</h1> 
         <p> Please click activate to verify <a href="${process.env.DOMAIN_NAME}/users/activate?email=${infor.email}&activationString=${activationString}">Activate</p>`,
     }
@@ -76,8 +76,8 @@ exports.sendMail=async (username, email, password) => {
         const msg = {
             to: email, // Change to your recipient
             from: process.env.SENDER_EMAIL, // Change to your verified sender
-            subject: "Reset password edu course",
-            text: "Wellcome to my center !!!!!",
+            subject: 'Reset password edu course',
+            text: 'Wellcome to my center !!!!!',
             html: `<h1>Thanks for beleiving on our course</h1> 
             <p> Please click to verify fot your new password <a href="${process.env.DOMAIN_NAME}/users/verifyResetPassword?email=${email}&activationString=${student['User._activationString']}&password=${passHash}&username=${username}">Verify</p>`,
         }
@@ -92,6 +92,8 @@ exports.sendMail=async (username, email, password) => {
     }
     return student
 }
+
+
 
 exports.resetPassword=(email, username, activationString, password)=>
     User.findOne({where: {_userName: username,_email: email, _activationString: activationString}}).then((user)=>
