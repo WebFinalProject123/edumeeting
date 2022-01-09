@@ -10,9 +10,7 @@ const sequelize = require('sequelize')
 exports.list=(query)=> {
     let condition={}
     if (query.minPrice!== undefined)
-        condition._price={[Op.gt]: query.minPrice}
-    if (query.maxPrice!== undefined)
-        condition._price={[Op.lt]: query.maxPrice}
+        condition._price={[Op.between]:[query.minPrice, query.maxPrice]}
     if (query.type!==undefined)
         condition._type=query.type
     if (query.search!== undefined)
