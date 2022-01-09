@@ -6,6 +6,6 @@ exports.login=(req,res)=>{
 const passport=require('../../passport')
 exports.register=(req,res, next)=>{
     const user=studentService.register(req.body)
-    res.redirect('/login')
+    res.redirect('/login') 
 }
 
