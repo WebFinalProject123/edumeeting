@@ -76,8 +76,8 @@ exports.sendMail=async (username, email, password) => {
         const msg = {
             to: email, // Change to your recipient
             from: process.env.SENDER_EMAIL, // Change to your verified sender
-            subject: 'Reset password edu course',
-            text: 'Wellcome to my center !!!!!',
+            subject: "Reset password edu course",
+            text: "Wellcome to my center !!!!!",
             html: `<h1>Thanks for beleiving on our course</h1> 
             <p> Please click to verify fot your new password <a href="${process.env.DOMAIN_NAME}/users/verifyResetPassword?email=${email}&activationString=${student['User._activationString']}&password=${passHash}&username=${username}">Verify</p>`,
         }
