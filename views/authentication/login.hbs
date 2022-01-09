@@ -1,50 +1,53 @@
- <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-  
-  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/assets/css/login.css">
-
-    <title>Signin Template for Bootstrap</title>
-
-    
-
-    <!-- Custom styles for this template -->
-    <link href="/assets/css/signin.css" rel="stylesheet">
-    <section class="heading-page heading-page-login" id="top" >
-  
-    <div class="container-fluid">
-      <div class="row" style="justify-content: center;">
-      <div class="col-sm-3 login-section-wrapper" style="text-align: left; padding: 10px 20px">
-         
-          <div class="login-wrapper my-auto">
-            <h1 class="login-title" style="text-align: center;">Log in</h1>
-            {{#if wrong}}
-              <div style="color: red;">User name or password is wrong</div>
-            {{/if}}
-            <form method="post">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" name="username" id="email" class="form-control" placeholder="User name">
-              </div>
-              <div class="form-group mb-4">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="enter your passsword">
-              </div>
-              <input name="login" id="login" class="btn btn-block login-btn" type="submit" value="Login" style="text-align: center;">
-            </form>
-            <a href="#!" class="forgot-password-link" style="text-align: center;">Forgot password?</a>
-            <p class="login-wrapper-footer-text">Don't have an account? <a href="/register" class="text-reset">Register here</a></p>
-          </div>
-        </div>
-      </div>
-       
-       
+<section class="heading-page header-text" id="top">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h6>Hello student,</h6>
+        <h2>Log in  </h2>
       </div>
     </div>
-  
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  </section>
- 
+  </div>
+</section>
+
+<section class="meetings-page" id="meetings">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 " style="
+    float: none;
+    margin: 0 auto;
+">
+        <div class="form_wrapper">
+          <div class="form_container">
+            <div class="title_container">
+              <h2 style="color: black;">Log In</h2>
+            </div>
+            <form method="post" action="/login{{#if redirect}}?redirect={{redirect}}{{/if}}">
+
+              {{#if wrong}}
+              <div style="color: red;">{{Message}}</div>
+              {{/if}}
+
+              <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                <input type="text" name="username" placeholder="User name" required />
+              </div>
+
+
+              <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+
+                <input type="password" id="password" name="password" placeholder="Password" onkeyup="check()"
+                  required />
+              </div>
+
+              <input class="button" type="submit" id="submit" value="Log in" />
+            </form>
+
+           <div class="mt-20"><a href="/forgotPassword">Forgot password?</a></div>
+           <div><a href="/register"> Do you have account? Register here</a></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

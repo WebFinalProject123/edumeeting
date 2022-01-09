@@ -17,3 +17,21 @@ exports.list = (req, res, next) => {
     })
         .catch(next)
 }
+
+exports.payment= async (req, res)=>{
+    const Class= await classservice.findOne(req.params.classID)
+
+    console.log(Class)
+
+    res.render('payment/payment', {Class})
+}
+
+exports.purchase= async (req, res)=>{
+    const isExistsing= await classservice.checkRegistration(req.params.classID,req.user.studentID)
+    if (isExistsing === null){
+        await classservice.purchase(req.params.classID,req.user.studentID)
+        res.status(201).json({success:true})
+    }
+    else res.status(401).json({failure:true})
+    
+}

@@ -13,7 +13,7 @@
               <li><a href="#"><i class="fa fa-behance"></i></a></li>
               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
               {{#if student}}
-                <li style="color: white;"><i class="fa fa-user"></i>  Hello {{student.firstName}} {{student.lastName}} </li>
+                <li style="color: white;"><a href="/me/information"><img src="{{student.avatar}}" class="rounded-circle student-avatar" alt="" >  Hello {{student.firstName}} {{student.lastName}}</a> </li>
                 <li><a href="/logout" class="Login_icon">Logout</a></li>
               {{else}}
                 <li><a href="/login" class="Login_icon">Login</a></li>

@@ -5,13 +5,20 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require("express-session")
 const passport= require("./passport")
+var flash = require('connect-flash');
 
 var association= require('./models/asocciate');
 association();
+
+var fileUpload=require('express-fileupload');
+
 var app = express();
+
+app.use(fileUpload({useTempFiles: true}));
 const hbs = require('hbs');
 var loggedInGuard=require('./middlewares/loggedInGuard')
 
+app.use(flash());
 app.use(session({ secret: process.env.SECRET_SESSION }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -27,9 +34,10 @@ var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var courseRouter = require('./routes/courses');
 var coursedetailsRouter = require('./routes/course_details');
-var paymentRouter = require('./routes/payment');
+
 var authRouter= require('./routes/auth')
 var meRouter= require('./routes/me')
+var apiRouter = require('./routes/api')
 
 
 
@@ -58,8 +66,10 @@ app.use('/me',loggedInGuard, meRouter);
 
 app.use('/courses', courseRouter);
 app.use('/course_details', coursedetailsRouter);
-app.use('/payment', paymentRouter);
+
 app.use('/apply', (req,res)=>{res.render('contact/apply')})
+
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

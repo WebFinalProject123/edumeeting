@@ -38,11 +38,14 @@ const User = sequelize.define('User', {
     _avatar:{
         type: DataTypes.STRING
     },
-    _status:{
-        type: DataTypes.BOOLEAN
-    },
-    _activationString: {
+    _activationString:{
         type: DataTypes.STRING
+    }, 
+    _isActivated:{
+        type: DataTypes.BOOLEAN
+    }, 
+    _isBanned:{
+        type: DataTypes.BOOLEAN
     }
   },{
       tableName: 'User',

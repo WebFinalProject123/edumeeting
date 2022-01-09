@@ -3,7 +3,7 @@ const {DataTypes}= require('sequelize')
 
 const Registration = sequelize.define('Registration', {
   // Model attributes are defined here
-  _course_ID: {
+  _class_ID: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
@@ -15,6 +15,9 @@ const Registration = sequelize.define('Registration', {
   },
   _isPayed:{
       type: DataTypes.TINYINT
+  },
+  date:{
+    type: DataTypes.DATE,
   }
 },{
     tableName: 'Registration',

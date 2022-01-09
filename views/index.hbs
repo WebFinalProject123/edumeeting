@@ -95,96 +95,43 @@
         </div>
         <div class="col-lg-4">
           <div class="categories">
-            <h4>Meeting Catgories</h4>
+            <h4>Course Catgories</h4>
             <ul>
-              <li><a href="#">Sed tempus enim leo</a></li>
-              <li><a href="#">Aenean molestie quis</a></li>
-              <li><a href="#">Cras et metus vestibulum</a></li>
-              <li><a href="#">Nam et condimentum</a></li>
-              <li><a href="#">Phasellus nec sapien</a></li>
+              <div><li><a href="/courses/?type=Beginer">For Beginer</a></li></div>
+              <div><li><a href="/courses/?type=Medium">Medium</a></li></div>
+              <div><li><a href="/courses/?type=Advance">Advance</a></li></div>
             </ul>
             <div class="main-button-red">
-              <a href="/course">All Upcoming courses</a>
+              <a href="/courses">All courses</a>
             </div>
           </div>
         </div>
         <div class="col-lg-8">
           <div class="row">
+            {{#each courses}}
             <div class="col-lg-6">
               <div class="meeting-item">
                 <div class="thumb">
                   <div class="price">
-                    <span>$22.00</span>
+                    <span>${{this._price}}.00</span>
                   </div>
-                  <a href="/course_details"><img src="assets/images/meeting-01.jpg" alt="New Lecturer Meeting"></a>
+                  <a href="/course_details/{{this._course_ID}}"><img src="{{this._image}}" alt="New Lecturer Meeting"></a>
                 </div>
                 <div class="down-content">
-                  <div class="date">
-                    <h6>Nov <span>10</span></h6>
-                  </div>
-                  <a href="meeting_details"><h4>New Lecturers Meeting</h4></a>
-                  <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
+                  
+                  <a href="/course_details/{{this._course_ID}}"><h4>{{this._name}}</h4></a>
+                  <p>{{this._brief_description}}</p>
                 </div>
               </div>
             </div>
-            <div class="col-lg-6">
-              <div class="meeting-item">
-                <div class="thumb">
-                  <div class="price">
-                    <span>$36.00</span>
-                  </div>
-                  <a href="meeting_details"><img src="assets/images/meeting-02.jpg" alt="Online Teaching"></a>
-                </div>
-                <div class="down-content">
-                  <div class="date">
-                    <h6>Nov <span>24</span></h6>
-                  </div>
-                  <a href="meeting_details"><h4>Online Teaching Techniques</h4></a>
-                  <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="meeting-item">
-                <div class="thumb">
-                  <div class="price">
-                    <span>$14.00</span>
-                  </div>
-                  <a href="meeting_details"><img src="assets/images/meeting-03.jpg" alt="Higher Education"></a>
-                </div>
-                <div class="down-content">
-                  <div class="date">
-                    <h6>Nov <span>26</span></h6>
-                  </div>
-                  <a href="meeting_details"><h4>Higher Education Conference</h4></a>
-                  <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="meeting-item">
-                <div class="thumb">
-                  <div class="price">
-                    <span>$48.00</span>
-                  </div>
-                  <a href="meeting_details"><img src="assets/images/meeting-04.jpg" alt="Student Training"></a>
-                </div>
-                <div class="down-content">
-                  <div class="date">
-                    <h6>Nov <span>30</span></h6>
-                  </div>
-                  <a href="meeting_details"><h4>Student Training Meetup</h4></a>
-                  <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
-                </div>
-              </div>
-            </div>
+            {{/each}}
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="apply-now" id="apply">
+  {{!-- <section class="apply-now" id="apply">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 align-self-center">
@@ -547,7 +494,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
 
   <script src="assets/js/isotope.min.js"></script>
 

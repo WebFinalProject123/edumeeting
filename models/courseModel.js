@@ -30,6 +30,12 @@ const Course = sequelize.define('Course', {
   },
   _image:{
       type: DataTypes.STRING
+  },
+  _type:{
+      type: DataTypes.STRING
+  },
+  _views:{
+      type: DataTypes.INTEGER
   }
 },{
     tableName: 'Course',
