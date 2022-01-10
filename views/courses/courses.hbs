@@ -20,10 +20,10 @@
           <section id="sidebar" >
             <div  id="type" >
               <h4 class="p-1 border-bottom "><b>Search Box</b> </h4>
-              <form class="d-flex mt-3 ms-2" style="margin-bottom: 5%;">
-                <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-success" type="submit">Search</button>
-              </form>
+              <div class="d-flex mt-3 ms-2" style="margin-bottom: 5%;">
+                <input class="form-control me-2" name="search" type="search" id="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-success" id="btn-search">Search</button>
+              </div>
               <h4 class="p-1 border-bottom "><b>Types</b> </h4>
               <ul class="m-2">
                 <a href="/courses">
@@ -119,16 +119,3 @@
   </div>
 
 </section>
-
-<script>
-  $('#btn-filter').on('click', function (e) {
-    var currentURL = new URL(window.location.href)
-    currentURL.searchParams.set('order', $('#order').val())
-    currentURL.searchParams.set('orderBy', $('#orderBy').val())
-    currentURL.searchParams.set('minPrice', $('#minPrice').val())
-    currentURL.searchParams.set('maxPrice', $('#maxPrice').val())
-    currentURL.searchParams.set('p',0)
-
-    window.location.href = currentURL
-  })
-</script>

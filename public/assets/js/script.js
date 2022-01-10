@@ -59,7 +59,19 @@ function check () {
     if(maxPrice!="")
         currentURL.searchParams.set('maxPrice',maxPrice)
 
-    if (!((order!="Order" && orderBy=="Order by") || (order=="Order" && orderBy!="Order by") || (minPrice==""&&maxPrice!="") || (minPrice!=""&&maxPrice=="")))
+    if (!((order!="Order" && orderBy=="Order by") || (order=="Order" && orderBy!="Order by") || (minPrice==""&&maxPrice!="") || (minPrice!=""&&maxPrice==""))){
+        currentURL.searchParams.set('p', 0)
+        window.location.href=currentURL
+    }
+})
+
+$('#btn-search').on('click', function(e) {
+    var currentURL=new URL(window.location.href)
+    const search=$('#search').val()
+    if(search!=""){
+        currentURL.searchParams.set('search',search)
+        currentURL.searchParams.set('p', 0)
+    }
     window.location.href=currentURL
 })
 
