@@ -37,16 +37,40 @@
                   <div class="down-content">
 
                     <h4>Class: {{this._className}}</h4>
-                    <p>Teacher: {{this.[Teacher.User._firstName]}} {{this.[Teacher.User._lastName]}}</p>
-                    <p>Start on: {{this._startDate}}</p>
-                    <p>End on: {{this._endDate}}</p>
-                    <p>1st Lesson: {{this.[Schedule1._dayOfWeek]}}: {{this.[Schedule1._startHour]}}-{{this.[Schedule1._endHour]}}</p>
-                    <p>2nd Lesson: {{this.[Schedule2._dayOfWeek]}}: {{this.[Schedule2._startHour]}}-{{this.[Schedule2._endHour]}}</p>
-                    <p>End on: {{this._endDate}}</p>
-                    <p>At room: {{this._room}}</p>
-                    <p>Number of lesson: {{this._numberOfLesson}}</p>
-                    <p>Current size: {{this._currentNumber}}/{{this._maxNumber}}</p>
-
+                    <div class="row">
+                      <div class="col-lg-5" style="font-weight: bold;">Teacher:</div>
+                      <div class="col-lg-7">{{this.[Teacher.User._firstName]}} {{this.[Teacher.User._lastName]}}</div>
+                    </div>
+                     <div class="row">
+                      <div class="col-lg-5" style="font-weight: bold;">Start on:</div>
+                      <div class="col-lg-7">{{this._startDate}}</div>
+                    </div>
+                     <div class="row">
+                      <div class="col-lg-5" style="font-weight: bold;">End on:</div>
+                      <div class="col-lg-7">{{this._endDate}}</div>
+                    </div>
+                     <div class="row">
+                    
+                      <div class="col-lg-5" style="font-weight: bold;">1st Lesson:</div>
+                      <div class="col-lg-7">{{this.[Schedule1._dayOfWeek]}}: {{this.[Schedule1._startHour]}}-{{this.[Schedule1._endHour]}}</div>
+                    </div>
+                     <div class="row">
+                      <div class="col-lg-5" style="font-weight: bold;">2nd Lesson:</div>
+                      <div class="col-lg-7">{{this.[Schedule2._dayOfWeek]}}: {{this.[Schedule2._startHour]}}-{{this.[Schedule2._endHour]}}</div>
+                    </div>
+                     <div class="row">
+                      <div class="col-lg-5" style="font-weight: bold;">At room:</div>
+                      <div class="col-lg-7">{{this._room}}</div>
+                    </div>
+                     <div class="row">
+                      <div class="col-lg-5" style="font-weight: bold;">Lessons:</div>
+                      <div class="col-lg-7">{{this._numberOfLesson}}</div>
+                    </div>
+                     <div class="row">
+                      <div class="col-lg-5" style="font-weight: bold;">Current size:</div>
+                      <div class="col-lg-7">{{this._currentNumber}}/{{this._maxNumber}}</div>
+                    </div>
+                   
                     <div class="col-lg-12">
                       <div class="main-button-red">
                         <a href="/courses/class/payment/{{this._class_ID}}">Register</a>

@@ -14,7 +14,7 @@ exports.list=(query)=> {
     if (query.type!==undefined)
         condition._type=query.type
     if (query.search!== undefined)
-        condition._name= {[Op.like]: `%${query.search}%`}
+        condition._name= {[Op.like]: `%${query.search.trim()}%`}
     if(query.orderBy!== undefined)
     {
         return courseModel.findAll({raw: true, where: condition, order: [[query.orderBy, query.order]]})
