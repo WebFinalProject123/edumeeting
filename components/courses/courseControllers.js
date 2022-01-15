@@ -3,9 +3,8 @@ const courseModel=require('../../models/courseModel')
 exports.detail= async (req,res,next)=>{
     const course = await courseService.detail(req.params.id)
     let comments = await courseService.comment(req.params.id)
-    let relativeCourses=await courseService.coursesByType(course._type)
-    relativeCourses=relativeCourses.splice (relativeCourses.indexOf(course), 1)
-
+    let relativeCourses=await courseService.coursesByType(course._type, course._course_ID)
+    
     courseModel.increment('_views', {where: {_course_ID: course._course_ID}});
     comments.sort((a,b)=>{
         return b._comment_ID - a._comment_ID;
